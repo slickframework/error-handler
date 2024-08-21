@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b65cbe8bf1acfddd11ca884112e042c",
+    "content-hash": "b7ef12f58a5d8760c18a589572ed8e1d",
     "packages": [],
     "packages-dev": [
         {
@@ -13,22 +13,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "ea4ab6f9580a4fd221e0418f2c357cdd39102a90"
+                "reference": "1637e067347a0c40bbb1e3cd786b20dcab556a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/ea4ab6f9580a4fd221e0418f2c357cdd39102a90",
-                "reference": "ea4ab6f9580a4fd221e0418f2c357cdd39102a90",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/1637e067347a0c40bbb1e3cd786b20dcab556a81",
+                "reference": "1637e067347a0c40bbb1e3cd786b20dcab556a81",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0"
             },
             "conflict": {
-                "phpstan/phpstan": "<1.11.8"
+                "phpstan/phpstan": "<1.11.10"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.11.8",
+                "phpstan/phpstan": "^1.11.10",
                 "phpstan/phpstan-strict-rules": "^1.1",
                 "phpunit/phpunit": "^8 || ^9"
             },
@@ -69,7 +69,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/pcre/issues",
-                "source": "https://github.com/composer/pcre/tree/3.2.0"
+                "source": "https://github.com/composer/pcre/tree/3.3.0"
             },
             "funding": [
                 {
@@ -85,7 +85,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-25T09:36:02+00:00"
+            "time": "2024-08-19T19:43:53+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -841,12 +841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "f9e07be0992e7bf1cad210829055b99318df142f"
+                "reference": "d1235b29eda1b4b38a9de8f980a87e0053ae0815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f9e07be0992e7bf1cad210829055b99318df142f",
-                "reference": "f9e07be0992e7bf1cad210829055b99318df142f",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d1235b29eda1b4b38a9de8f980a87e0053ae0815",
+                "reference": "d1235b29eda1b4b38a9de8f980a87e0053ae0815",
                 "shasum": ""
             },
             "require": {
@@ -903,7 +903,7 @@
                 "issues": "https://github.com/phpspec/prophecy/issues",
                 "source": "https://github.com/phpspec/prophecy/tree/master"
             },
-            "time": "2024-03-29T09:25:04+00:00"
+            "time": "2024-08-21T09:18:21+00:00"
         },
         {
             "name": "phpspec/prophecy-phpunit",
@@ -1404,12 +1404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "29be78d678a698f5647af10bb9573ba66f418359"
+                "reference": "c2beb95a5fdc50367d83562af917fd62ea6212a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/29be78d678a698f5647af10bb9573ba66f418359",
-                "reference": "29be78d678a698f5647af10bb9573ba66f418359",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c2beb95a5fdc50367d83562af917fd62ea6212a4",
+                "reference": "c2beb95a5fdc50367d83562af917fd62ea6212a4",
                 "shasum": ""
             },
             "require": {
@@ -1497,7 +1497,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-17T05:08:43+00:00"
+            "time": "2024-08-21T06:59:36+00:00"
         },
         {
             "name": "psr/container",
@@ -1920,12 +1920,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "c70013aa038f430abfc61232baa2079385cea7df"
+                "reference": "6af04a161091265daf4791511c37158c837be274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/c70013aa038f430abfc61232baa2079385cea7df",
-                "reference": "c70013aa038f430abfc61232baa2079385cea7df",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/6af04a161091265daf4791511c37158c837be274",
+                "reference": "6af04a161091265daf4791511c37158c837be274",
                 "shasum": ""
             },
             "require": {
@@ -1980,7 +1980,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-13T08:53:16+00:00"
+            "time": "2024-08-21T07:25:16+00:00"
         },
         {
             "name": "sebastian/environment",

@@ -1,7 +1,7 @@
 # Slick error handler
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/slickframework/error-handler/continuous-integration.yml?style=flat-square)](https://github.com/slickframework/error-handler/actions/workflows/continuous-integration.yml)
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -21,6 +21,23 @@ Via Composer
 
 ``` bash
 $ composer require slick/error-handler
+```
+
+## Usage
+In you startup script add the following:
+
+```php
+// index.php
+<?php
+
+use Slick\ErrorHandler\Runner;
+use Slick\ErrorHandler\Util\SystemFacade;
+
+require_once 'vendor/autoload.php';
+
+$runner = new Runner(new SystemFacade());
+$runner->pushHandler(fn (Throwable $throwable) => echo $throwable->getMessage())
+       ->register();
 ```
 
 ## Change log
@@ -49,7 +66,7 @@ If you discover any security related issues, please email slick.framework@gmail.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 
 [ico-version]: https://img.shields.io/packagist/v/slick/error-handler.svg?style=flat-square
