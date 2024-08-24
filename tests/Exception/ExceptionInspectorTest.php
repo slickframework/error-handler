@@ -10,6 +10,7 @@ namespace Tests\Slick\ErrorHandler\Exception;
 
 use Slick\ErrorHandler\Exception\ExceptionInspector;
 use PHPUnit\Framework\TestCase;
+use Twig\Error\LoaderError;
 
 class ExceptionInspectorTest extends TestCase
 {
@@ -51,6 +52,22 @@ class ExceptionInspectorTest extends TestCase
             $inspector = new ExceptionInspector($error, dirname(__DIR__, 2).'/vendor/phpunit');
             $codeSnippet = $inspector->codeOfFirstAppFile(7);
             $this->assertStringContainsString('final protected function runTest(): mixed', $codeSnippet);
+        }
+    }
+
+    public function testHelpData(): void
+    {
+        try {
+            throw new LoaderError('Error');
+        } catch (\Throwable $error) {
+            $inspector = new ExceptionInspector($error);
+            $this->assertEquals(500, $inspector->statusCode());
+            $this->assertStringContainsString(
+                'Template engine looks for templates in specific directories',
+                $inspector->help()
+            );
+            $this->assertEquals('Internal Server Error', $inspector->httpError());
+            $this->assertEquals('Already Reported', $inspector->httpError(208));
         }
     }
 }

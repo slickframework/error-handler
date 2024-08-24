@@ -104,4 +104,6 @@ interface RunnerInterface
      * @return void
      */
     public function outputHeaders(array $headers): void;
+
+    public function sendResponseCode(int $code): void;
 }

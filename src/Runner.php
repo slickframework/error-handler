@@ -28,7 +28,7 @@ final class Runner implements RunnerInterface
     /** @var array<callable|HandlerInterface> */
     private array $handlers = [];
 
-    public function __construct(private readonly SystemFacade $system)
+    public function __construct(private readonly SystemFacade $system, private readonly ?string $path = '/')
     {
     }
 
@@ -84,7 +84,7 @@ final class Runner implements RunnerInterface
      */
     public function handleException(Throwable $exception): string
     {
-        $inspector = new ExceptionInspector($exception);
+        $inspector = new ExceptionInspector($exception, $this->path);
         $this->system->startOutputBuffering();
         // Just in case there are no handlers:
         $handlerResponse = null;
@@ -129,7 +129,7 @@ final class Runner implements RunnerInterface
             return false;
         }
 
-        $exception = new ErrorException($message, 0, $level, $file, $line);
+        $exception = new ErrorException($this->clearMessage($message), 0, $level, $file, $line);
         $this->handleException($exception);
         return true;
     }
@@ -169,5 +169,16 @@ final class Runner implements RunnerInterface
     public function outputHeaders(array $headers): void
     {
         $this->system->sendHeaders($headers);
+    }
+
+    public function sendResponseCode(int $code): void
+    {
+        $this->system->setHttpResponseCode($code);
+    }
+
+    private function clearMessage(string $message): string
+    {
+        $parts = explode("in /", $message, 2);
+        return trim($parts[0]);
     }
 }
