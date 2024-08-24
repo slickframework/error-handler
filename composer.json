@@ -2,7 +2,7 @@
     "name": "slick/error-handler",
     "description": "PHP Error Handler module that captures and displays all throwable errors in a given format, making debugging easier and more efficient",
     "type": "library",
-    "version": "v0.3.0",
+    "version": "v0.4.0",
     "keywords": ["slick-php", "error handler"],
     "require": {
         "php": ">=8.2"
@@ -42,7 +42,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.3-dev",
+            "dev-main": "0.4-dev",
             "dev-develop": "0.x-dev"
         }
     },
