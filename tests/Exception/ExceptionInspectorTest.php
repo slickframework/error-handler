@@ -63,7 +63,7 @@ class ExceptionInspectorTest extends TestCase
             $inspector = new ExceptionInspector($error);
             $this->assertEquals(500, $inspector->statusCode());
             $this->assertStringContainsString(
-                'Template engine looks for templates in specific directories',
+                'encountering suggests that the template engine',
                 $inspector->help()
             );
             $this->assertEquals('Internal Server Error', $inspector->httpError());
