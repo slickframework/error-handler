@@ -24,7 +24,7 @@ class ExceptionInspector
     private int $lineOfFirstAppFile = 0;
 
     /**
-     * @var array<string, array{statusCode: int, help: string}>
+     * @var array<string, array{statusCode: int, help: string, codeFromSource: bool}>
      */
     private array $errorsDb = [];
 
@@ -36,6 +36,7 @@ class ExceptionInspector
      * @var array<object{code: int, description: string}>
      */
     private array $httpCodes = [];
+    private bool $codeFromSource = false;
 
     public function __construct(private readonly Throwable $throwable, private readonly string $applicationRoot = '')
     {
@@ -97,16 +98,25 @@ class ExceptionInspector
      */
     public function codeOfFirstAppFile(int $around = 4): string
     {
+        if (!$this->codeFromSource) {
+            return $this->code($around);
+        }
         return $this->codeSnippet($this->firstAppFile, $this->lineOfFirstAppFile, $around);
     }
 
     public function firstAppFile(): string
     {
+        if (!$this->codeFromSource) {
+            return $this->throwable->getFile();
+        }
         return $this->firstAppFile;
     }
 
     public function lineOfFirstAppFile(): int
     {
+        if (!$this->codeFromSource) {
+            return $this->throwable->getLine();
+        }
         return $this->lineOfFirstAppFile;
     }
 
@@ -193,8 +203,9 @@ class ExceptionInspector
                 continue;
             }
 
-            $this->statusCode = $data["statusCode"];
-            $this->help = $data["help"];
+            $this->statusCode = isset($data["statusCode"]) ? $data["statusCode"] : 500;
+            $this->help = isset($data["help"]) ? $data["help"] : null;
+            $this->codeFromSource = isset($data["codeFromSource"]) ? (bool) $data["codeFromSource"] : true;
             break;
         }
     }
