@@ -17,6 +17,7 @@ use Throwable;
  * ExceptionInspector
  *
  * @package Slick\ErrorHandler\Exception
+ * @SuppressWarnings(PHPMD)
  */
 class ExceptionInspector
 {
@@ -45,7 +46,10 @@ class ExceptionInspector
         $httpCodesFile = dirname(__DIR__, 2) . '/config/http_codes.json';
         $this->errorsDb = include $errorsDbFile;
         $this->loadDb();
-        $this->httpCodes = json_decode(file_get_contents($httpCodesFile));
+        $httpCodesJson = file_get_contents($httpCodesFile);
+        if (is_string($httpCodesJson)) {
+            $this->httpCodes = json_decode($httpCodesJson);
+        }
     }
 
     /**
@@ -210,6 +214,12 @@ class ExceptionInspector
         }
     }
 
+    /**
+     * Retrieve the help message.
+     *
+     * @return string|null The help message if it exists, otherwise null
+     * @SuppressWarnings(PHPMD)
+     */
     public function help(): ?string
     {
         if (!$this->help) {

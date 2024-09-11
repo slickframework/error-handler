@@ -84,7 +84,7 @@ final class Runner implements RunnerInterface
      */
     public function handleException(Throwable $exception): string
     {
-        $inspector = new ExceptionInspector($exception, $this->path);
+        $inspector = new ExceptionInspector($exception, (string) $this->path);
         $this->system->startOutputBuffering();
         // Just in case there are no handlers:
         $handlerResponse = null;
